@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+
 
 public class CameraRoation : MonoBehaviour {
 
@@ -23,26 +25,35 @@ public class CameraRoation : MonoBehaviour {
 
 	private Vector2 mouseScroll;
 
+    private NavMeshAgent agent;
+    private GameObject player;
+
 	private void Awake()
 	{
 	
 		camTransform = transform;
 		cam = Camera.main;
-	
-	}
+        agent = GameObject.Find("Player").GetComponent<NavMeshAgent>();
+        player = GameObject.Find("Player");
+
+    }
 
 	private void Update(){
 		mouseScroll = Input.mouseScrollDelta;
 		if (Input.GetKey (KeyCode.Mouse1)) {
 			currentX += Input.GetAxis ("Mouse X");
 			currentY -= Input.GetAxis ("Mouse Y");
-
 			currentY = Mathf.Clamp (currentY, Y_Angle_MIN, Y_Angle_MAX);//must be between 2 value 
 		}
 		distance += mouseScroll.y;
 		distance = Mathf.Clamp (distance, Y_CamDistance_MIN, Y_CamDistance_MAX);//must be between 2 value 
 
-	}
+        PlayerMove_PnC();
+        PlayerMove_WASD();
+        
+      
+
+    }
 
 	private void LateUpdate()
 	{
@@ -52,5 +63,49 @@ public class CameraRoation : MonoBehaviour {
 		camTransform.LookAt(lookAt.position);
 	}
 
-	//TODO point and click
+
+
+
+    private void PlayerMove_WASD()// Player WASD movement  PERFECT
+    {  
+        var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
+        var z = Input.GetAxis("Vertical") * Time.deltaTime * 10.0f;
+        if (x != 0 || z != 0)
+        {
+            agent.Stop();
+            player.transform.Rotate(0, x, 0);
+            player.transform.Translate(0, 0, z);
+        }
+        if ((Input.GetKey(KeyCode.Mouse1)))
+        {
+            if (Input.GetKey(KeyCode.W))
+            {
+                print("hey");
+                Quaternion rotation = camTransform.transform.rotation;
+                rotation.x = 0f;
+                rotation.z = 0f;
+                player.transform.rotation = rotation;
+
+            }
+        }
+
+            //TODO fix mouse and player roation
+
+        }
+
+    private void PlayerMove_PnC()//Player Point and Click movement //works perfectly
+    {
+        
+        if (Input.GetMouseButtonDown(0))
+        {
+            agent.Resume();
+            RaycastHit hit;
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+            {
+                agent.destination = hit.point;
+            }
+        }
+    }
 }
+
+
