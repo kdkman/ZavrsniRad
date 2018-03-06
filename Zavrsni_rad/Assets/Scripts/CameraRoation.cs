@@ -6,18 +6,18 @@ using UnityEngine.AI;
 
 public class CameraRoation : MonoBehaviour {
 
-	private const float Y_Angle_MIN = 5f;//min look angle
+	private const float Y_Angle_MIN = 10f;//min look angle
 	private const float Y_Angle_MAX= 50f;//max look angle
 
 	private const float Y_CamDistance_MIN = 5f;//min look Camera distance
-	private const float Y_CamDistance_MAX= 30f;//max look aCamera distance
+	private const float Y_CamDistance_MAX= 25f;//max look aCamera distance
 
 	public Transform lookAt;// What camera looks at	
 	public Transform camTransform;//Camera transform
 
 	private Camera cam;//Main camera
 
-	private float distance =15f;
+	private float distance =10f;
 	private float currentX=0f;
 	private float currentY=0f;
 	private float sesivityX=4f;
@@ -28,6 +28,9 @@ public class CameraRoation : MonoBehaviour {
     private NavMeshAgent agent;
     private GameObject player;
 
+    [HideInInspector]
+    public float zRefrence;
+ 
 	private void Awake()
 	{
 	
@@ -60,7 +63,7 @@ public class CameraRoation : MonoBehaviour {
 		Vector3 dir = new Vector3 (0, 0, -distance);
 		Quaternion rotation = Quaternion.Euler (currentY, currentX, 0);//angle where player is looking at
 		camTransform.position = lookAt.position + rotation*dir;// putting camera behind the player by distance
-		camTransform.LookAt(lookAt.position);
+		camTransform.LookAt(lookAt.position);//cam look at destiantion
 	}
 
 
@@ -75,12 +78,12 @@ public class CameraRoation : MonoBehaviour {
             agent.Stop();
             player.transform.Rotate(0, x, 0);
             player.transform.Translate(0, 0, z);
+            zRefrence = z;
         }
-        if ((Input.GetKey(KeyCode.Mouse1)))
+        if ((Input.GetKey(KeyCode.Mouse1)))// setting player rotation to camera rotation
         {
             if (Input.GetKey(KeyCode.W))
             {
-                print("hey");
                 Quaternion rotation = camTransform.transform.rotation;
                 rotation.x = 0f;
                 rotation.z = 0f;
@@ -89,7 +92,7 @@ public class CameraRoation : MonoBehaviour {
             }
         }
 
-            //TODO fix mouse and player roation
+
 
         }
 
@@ -100,7 +103,7 @@ public class CameraRoation : MonoBehaviour {
         {
             agent.Resume();
             RaycastHit hit;
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))//100 is how far hit can be
             {
                 agent.destination = hit.point;
             }
