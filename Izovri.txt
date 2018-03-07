@@ -2,24 +2,14 @@ Youtube:
 
 
 Animation
-by Sebastian Lague
+Sebastian Lague
 INTEGRATION 01 - Making an RPG in Unity (E03)
 https://www.youtube.com/watch?v=COckHIIO8vk&t=6s
 +
 Assets : https://www.dropbox.com/s/ptqvz5jfrnr...
 
-Camera code only(no assets:
-by N3K EN
+Camera code only(no assets)
+
+N3K EN
 Unity 5 Third Person Camera [Tutorial][C#] - Unity 3d
 https://www.youtube.com/watch?v=Ta7v27yySKs
-
-
-Unity free Assets:
-
-by LYLEK GAMES
-Medieval Town Exteriors
-https://assetstore.unity.com/packages/3d/environments/fantasy/medieval-town-exteriors-27026
-
-by INK PHANTOM STUDIO
-Polylised - Medieval Desert City
-https://assetstore.unity.com/packages/3d/environments/historic/polylised-medieval-desert-city-94557

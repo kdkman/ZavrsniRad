@@ -9,15 +9,15 @@ public class CameraRoation : MonoBehaviour {
 	private const float Y_Angle_MIN = 10f;//min look angle
 	private const float Y_Angle_MAX= 50f;//max look angle
 
-	private const float Y_CamDistance_MIN = 10f;//min look Camera distance
-	private const float Y_CamDistance_MAX= 30f;//max look aCamera distance
+	private const float Y_CamDistance_MIN = 5f;//min look Camera distance
+	private const float Y_CamDistance_MAX= 25f;//max look aCamera distance
 
 	public Transform lookAt;// What camera looks at	
 	public Transform camTransform;//Camera transform
 
 	private Camera cam;//Main camera
 
-	private float distance =15f;
+	private float distance =10f;
 	private float currentX=0f;
 	private float currentY=0f;
 	private float sesivityX=4f;
@@ -69,10 +69,9 @@ public class CameraRoation : MonoBehaviour {
 
 
 
-    private void PlayerMove_WASD()// Player WASD movement  
+    private void PlayerMove_WASD()// Player WASD movement  PERFECT
     {  
         var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
-        //TODO fix backword movemnt 
         var z = Input.GetAxis("Vertical") * Time.deltaTime * 10.0f;
         if (x != 0 || z != 0)
         {
