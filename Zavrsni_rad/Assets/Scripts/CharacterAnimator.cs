@@ -45,7 +45,6 @@ public class CharacterAnimator : MonoBehaviour {
 
         
             speedPercent =((camScriptRef.zRefrence*10f )/2+0.2f);  // zRef (from 0.01 to 0.2)
-            print(camScriptRef.zRefrence);
            
             if (camScriptRef.zRefrence < 0.009)
             {

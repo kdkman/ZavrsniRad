@@ -6,11 +6,11 @@ using UnityEngine.AI;
 
 public class CameraRoation : MonoBehaviour {
 
-	private const float Y_Angle_MIN = 10f;//min look angle
+	private const float Y_Angle_MIN = 0f;//min look angle
 	private const float Y_Angle_MAX= 50f;//max look angle
 
-	private const float Y_CamDistance_MIN = 5f;//min look Camera distance
-	private const float Y_CamDistance_MAX= 25f;//max look aCamera distance
+	private const float Y_CamDistance_MIN = 8f;//min look Camera distance
+	private const float Y_CamDistance_MAX= 15f;//max look aCamera distance
 
 	public Transform lookAt;// What camera looks at	
 	public Transform camTransform;//Camera transform
@@ -39,6 +39,8 @@ public class CameraRoation : MonoBehaviour {
         agent = GameObject.Find("Player").GetComponent<NavMeshAgent>();
         player = GameObject.Find("Player");
 
+     
+
     }
 
 	private void Update(){
@@ -63,15 +65,19 @@ public class CameraRoation : MonoBehaviour {
 		Vector3 dir = new Vector3 (0, 0, -distance);
 		Quaternion rotation = Quaternion.Euler (currentY, currentX, 0);//angle where player is looking at
 		camTransform.position = lookAt.position + rotation*dir;// putting camera behind the player by distance
-		camTransform.LookAt(lookAt.position);//cam look at destiantion
-	}
+
+        camTransform.LookAt(lookAt.position);//cam look at destiantion
+        camTransform.position = new Vector3(camTransform.position.x, camTransform.position.y + 2, camTransform.position.z);
+
+    }
 
 
 
 
-    private void PlayerMove_WASD()// Player WASD movement  PERFECT
+    private void PlayerMove_WASD()// Player WASD movement  
     {  
         var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
+        //TODO fix backword movemnt 
         var z = Input.GetAxis("Vertical") * Time.deltaTime * 10.0f;
         if (x != 0 || z != 0)
         {
@@ -103,9 +109,15 @@ public class CameraRoation : MonoBehaviour {
         {
             agent.Resume();
             RaycastHit hit;
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))//100 is how far hit can be
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000))//1000 is how far hit can be
             {
-                agent.destination = hit.point;
+                if (hit.transform.gameObject == GameObject.Find("Market Kepper")) {
+                    agent.Stop(); }
+                else
+                {
+                    agent.destination = hit.point;
+                }
+               
             }
         }
     }
