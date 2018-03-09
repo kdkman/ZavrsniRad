@@ -1,2 +1,3 @@
 Character passes through objects - Put collision on buildings and other objects
 Player doesnt want to stop , he still moves on terrain,player stands still but moves left right // only lala problem maybe touchpad issue
+Need to Add ground circle on ArrowHead

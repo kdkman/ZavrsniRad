@@ -1,16 +1,16 @@
-	BASICS
+	BASICS //COMPLETED
 
 1. Ask Teacher for older projects for and example.  #till 5.3 // COMPLETED
 2. Do basic movement for character : a) WASD movment with camera. // COMPLETED
  				     b) Point and click movement. #till 7.3 //COMPLETED
 3. Basic Animation and Character for player.  #till 9.3 //COMPLETED
 4. Basic Level Desing and allaroudn test of a project.  #till 10.3 
-	PROJECT REVSION v1.  #till 11.3
+	PROJECT REVSION v1.  #till 11.3 //COMPLETED
 
 	FUNCIONALATY 
 
-5. Add Frist NPCs and onClick Funcionalaty. #till 13.3
-6. Add UI on the ground and onClick. #till 14.3
+5. Add Frist NPCs and onClick Funcionalaty. #till 13.3 //COMPLETED
+6. Add UI on the ground and onClick. #till 14.3  //COMPLETED
 7. Add player Invenotry System. #till 17.3
 8. Add Npc Inventory System + Buy and sell option. #till 19.3 #MAYBE NEED
 9. Add Inventory UI #till 20.3				      #TO MERGE AND RIVESE
