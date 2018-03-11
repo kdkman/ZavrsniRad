@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 222806351255322096}
   - component: {fileID: 114958755391027440}
   - component: {fileID: 114212849574372674}
+  - component: {fileID: 114792422889364968}
+  - component: {fileID: 225359897496747134}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -169,6 +171,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e0e35a677231c478cded5f92487dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amount: 0
+  slotN: 0
+--- !u!114 &114792422889364968
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1159422208181726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1679637790, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 1
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114958755391027440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -245,3 +268,14 @@ RectTransform:
   m_AnchoredPosition: {x: -6.6, y: 10.3}
   m_SizeDelta: {x: 42.589996, y: 40.45}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &225359897496747134
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1159422208181726}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
