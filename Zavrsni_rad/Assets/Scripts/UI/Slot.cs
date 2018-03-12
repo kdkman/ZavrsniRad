@@ -13,8 +13,6 @@ namespace TMPro.Examples {
         {
      
             inv = GameObject.Find("Inventory").GetComponent<Inventory>();
-            
-
         }
 
 

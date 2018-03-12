@@ -11,9 +11,9 @@
 
 5. Add Frist NPCs and onClick Funcionalaty. #till 13.3 //COMPLETED
 6. Add UI on the ground and onClick. #till 14.3  //COMPLETED
-7. Add player Invenotry System. #till 17.3
+7. Add player Invenotry System. #till 17.3//COMPLETED
 8. Add Npc Inventory System + Buy and sell option. #till 19.3 #MAYBE NEED
-9. Add Inventory UI #till 20.3				      #TO MERGE AND RIVESE
+9. Add Inventory UI #till 20.3	//COMPLETED			      #TO MERGE AND RIVESE
 10. Allaroudn test of a project.  #till 21.3 
 	PROJECT REVSION v2.  #till 21.3
 
