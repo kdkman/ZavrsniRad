@@ -173,6 +173,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amount: 0
   slotN: 0
+  slotPanel: {fileID: 0}
+  originalParent: {fileID: 0}
 --- !u!114 &114792422889364968
 MonoBehaviour:
   m_ObjectHideFlags: 1

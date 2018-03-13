@@ -1,8 +1,19 @@
 [
 	{ 
 	"id":0, 
+	"title": "Coins", 
+	"value":1,
+	"stats" : 
+	{	"power" : 0,"defence" : 0,"vitality":0	},
+	"description": "Gloves made from steel",
+	"stackable":true,
+	"rarity": 0,
+	"slug": "the_coins"
+	
+	},{ 
+	"id":1, 
 	"title": "Steel Gloves", 
-	"value":2,
+	"value":8,
 	"stats" : 
 	{	"power" : 1,"defence" : 4,"vitality":2	},
 	"description": "Gloves made from steel",
@@ -12,9 +23,9 @@
 	
 	},
 	{ 
-	"id":1, 
+	"id":2, 
 	"title": "The Great Axe", 
-	"value":543,
+	"value":10,
 	"stats" : {"power" : 56,"defence" : 2,"vitality":54},
 	"description": "Big ass stick",
 	"stackable":true,

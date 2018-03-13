@@ -12,7 +12,7 @@ namespace TMPro.Examples
         GameObject slotPanel;
         public GameObject invenotrySlot;
         public GameObject invenotryItem;
-        ItemDatabase database;
+        public ItemDatabase database;
 
         private int slotAmount = 16;
         public List<Item> items = new List<Item>();
@@ -32,11 +32,11 @@ namespace TMPro.Examples
             }
 
 
-            AddItem(1);
-            AddItem(1);
+
             AddItem(0);
             AddItem(1);
-            AddItem(0);
+            AddItem(2);
+
         }
 
         public void AddItem(int id)
@@ -53,7 +53,7 @@ namespace TMPro.Examples
                     {
                         ItemData data = slots[i].transform.GetChild(0).GetComponent<ItemData>(); //get ItemData componet from first child in item
                         data.amount++;//adds ONLY ONE !!!
-                        data.transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText( data.amount.ToString());
+                        data.transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText(data.amount.ToString());
                         break;
                     }
                     else
@@ -70,7 +70,7 @@ namespace TMPro.Examples
                     }
 
                 }
-               
+
             }
             else
             {
@@ -86,13 +86,39 @@ namespace TMPro.Examples
                         itemObj.transform.position = Vector2.zero; //setting its postiion in centar in slot
                         itemObj.GetComponent<Image>().sprite = itemToAdd.Sprite; //setting sprite image to object
                         itemObj.name = itemToAdd.Title;
+                        slots[i].transform.GetChild(0).GetComponent<ItemData>().amount++;
                         break;
                     }
                 }
             }
-          
+
         }
 
+        public void RemoveItem(int id)
+        {
 
+            int amout = 100;
+            Item itemToRemove = database.FetchItemByID(id);
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i].ID == id)
+                {
+                    print("loks");
+                    ItemData data = slots[i].transform.GetChild(0).GetComponent<ItemData>(); //get ItemData componet from first child in item
+                    data.amount--;//removes ONLY ONE !!!
+                    amout = data.amount;
+                    data.transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText(data.amount.ToString());
+                    break;
+                }
+            }
+            if (amout < 1)
+            {
+                print("lok13s");
+                Item a = new Item();
+                items[id] = a;
+                items[id].Sprite = a.Sprite;
+                
+            }
+        }
     }
 }

@@ -4,21 +4,30 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace TMPro.Examples {
-    public class Slot : MonoBehaviour, IDropHandler
+    public class Slot : MonoBehaviour, IDropHandler,IPointerClickHandler
     {
+        private GameObject Canvas_GO;
         private Inventory inv;
         public int id;
 
         void Start()
         {
-     
             inv = GameObject.Find("Inventory").GetComponent<Inventory>();
+            Canvas_GO = GameObject.Find("Canvas_Invenotry");
+            
         }
-
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            ItemData clickItem = eventData.pointerDrag.GetComponent<ItemData>();
+            if (GameObject.Find("Sell").activeSelf)
+            {
+                Sell sell = GameObject.Find("Sell").GetComponent<Sell>();
+                sell.SellItem(clickItem.item, clickItem.amount);
+            }
+        }
 
         public void OnDrop(PointerEventData eventData)
         {
-            print(inv.items[id].ID);
             ItemData droppedItem = eventData.pointerDrag.GetComponent<ItemData>();
 
             if (inv.items[id].ID == -1)//if there is no item
@@ -48,8 +57,10 @@ namespace TMPro.Examples {
                 
             }
 
-            //TODO if its out of invenotry drop item
+          
         }
+
+    
     }
 
 }
